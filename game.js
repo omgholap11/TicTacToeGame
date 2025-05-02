@@ -3,12 +3,10 @@ let resetbtn = document.querySelector(".reset");
 let newbtn = document.querySelector(".newgame");
 let winner = document.querySelector(".winner");
 let switchmode = document.querySelector("#switch");
-let turn = true; //player1 or player 2 tuen   let true == player 1 turn with 0
-//we will store winning patterns in 2Darray
+let turn = true; 
 const winPattern = [
 [0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[6,4,2],[0,4,8]];
 
-//to add event listener when we click on box
 let flag = true;
 let handler1 = ()=>{
     if(flag)
@@ -92,29 +90,25 @@ function displayWinner(player)
     disable();
 };
 
-// Function to check if the game is tied
 function checkTie() {
     let isTied = true;
-    // Check if all boxes are filled
     boxes.forEach((box) => {
         if (box.innerText === "") {
             isTied = false;
         }
     });
-    // If all boxes are filled and no winner, it's a tie
     return isTied && !checker();
 }
 
-// Function to display tie message
 function displayTie() {
     let leftDisplay = document.querySelector("#left");
     let rightDisplay = document.querySelector("#right");
     
-    // Change the text to show it's a tie
+   
     leftDisplay.innerText = "Game Tied!";
+    
     rightDisplay.innerText = "";
     
-    // Make winner display visible
     winner.classList.remove("keephide");
     disable();
 }
@@ -140,7 +134,7 @@ let handler = (box) => {
   turn = !turn;
   box.disabled = true;
   
-  // Check for tie after each move if no winner is found
+ 
   if (!checker() && checkTie()) {
     displayTie();
   }
