@@ -1,4 +1,4 @@
-# TicTacToeGame
+# Tic Tac Toe Game
 Tic Tac Toe Game
 
 # My First Front-End Project
